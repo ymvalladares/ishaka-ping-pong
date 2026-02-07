@@ -277,7 +277,7 @@ const Footer = () => {
               color: 'rgba(255, 255, 255, 0.6)',
             }}
           >
-            © 2026 Elite TT Table Tennis Club. All rights reserved.
+            © 2026 Abbsium. All rights reserved.
           </Typography>
           <Box sx={{ display: 'flex', gap: 3 }}>
             {['Privacy Policy', 'Terms of Service', 'Cookie Policy'].map((item) => (

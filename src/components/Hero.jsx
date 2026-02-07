@@ -29,7 +29,7 @@ const Hero = () => {
         overflow: 'hidden',
         background: '#FFFFFF',
         pt: { xs: 10, md: 12 },
-        pb: { xs: 8, md: 10 },
+        pb: { xs: 6, md: 10 },
       }}
     >
       {/* Animated Background Elements */}
@@ -86,6 +86,10 @@ const Hero = () => {
                   from: { opacity: 0, transform: 'translateX(-50px)' },
                   to: { opacity: 1, transform: 'translateX(0)' },
                 },
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: { xs: 'center', md: 'flex-start' },
+                textAlign: { xs: 'center', md: 'left' },
               }}
             >
               {/* Premium Badge */}
@@ -179,6 +183,7 @@ const Hero = () => {
                   display: 'flex',
                   gap: 2,
                   flexWrap: 'wrap',
+                  justifyContent: { xs: 'center', md: 'flex-start' },
                   animation: 'fadeIn 1s ease-out 0.9s backwards',
                 }}
               >

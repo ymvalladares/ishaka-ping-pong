@@ -1,3 +1,10 @@
 QUICK_REFERENCE.md
 README.md
 SETUP_GUIDE.md
+
+node_modules
+build
+dist
+.cache
+.env
+.DS_Store

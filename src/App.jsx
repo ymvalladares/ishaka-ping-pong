@@ -7,7 +7,7 @@ import Teams from './components/Teams';
 import Tournaments from './components/Tournaments';
 import Training from './components/Training';
 import Gallery from './components/Gallery';
-import Membership from './components/Membership';
+// import Membership from './components/Membership';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 

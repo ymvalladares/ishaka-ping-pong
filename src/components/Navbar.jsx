@@ -110,7 +110,7 @@ const Navbar = () => {
                   lineHeight: 1,
                 }}
               >
-                ELITE TT
+                ISHAKA TT
               </Box>
               <Box
                 sx={{

@@ -111,7 +111,7 @@ function App() {
         <Tournaments />
         <Training />
         <Gallery />
-        <Membership />
+        {/* <Membership /> */}
         <Contact />
         <Footer />
       </div>

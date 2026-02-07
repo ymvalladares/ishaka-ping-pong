@@ -4,6 +4,9 @@ import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import PersonIcon from '@mui/icons-material/Person';
 import GroupsIcon from '@mui/icons-material/Groups';
 import SchoolIcon from '@mui/icons-material/School';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+import PhoneIcon from '@mui/icons-material/Phone';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 const programs = [
   {
@@ -36,13 +39,65 @@ const programs = [
 ];
 
 const scheduleData = [
-  { day: 'Monday', morning: 'Open Play', afternoon: 'Group Training', evening: 'Private Sessions' },
-  { day: 'Tuesday', morning: 'Youth Academy', afternoon: 'Open Play', evening: 'Competitive Squad' },
-  { day: 'Wednesday', morning: 'Open Play', afternoon: 'Group Training', evening: 'Private Sessions' },
-  { day: 'Thursday', morning: 'Youth Academy', afternoon: 'Open Play', evening: 'Elite Training' },
-  { day: 'Friday', morning: 'Open Play', afternoon: 'Group Training', evening: 'Tournament Prep' },
-  { day: 'Saturday', morning: 'All Programs', afternoon: 'Workshops', evening: 'Open Play' },
+  { 
+    day: 'Monday', 
+    shortDay: 'MON',
+    sessions: [
+      { time: '6:30 PM - 9:30 PM', activity: 'Open Practice' }
+    ]
+  },
+  { 
+    day: 'Tuesday', 
+    shortDay: 'TUE',
+    sessions: [
+      { time: 'By Appointment', activity: 'Closed' }
+    ]
+  },
+  { 
+    day: 'Wednesday', 
+    shortDay: 'WED',
+    sessions: [
+      { time: '6:30 PM - 9:30 PM', activity: 'Open Practice' }
+    ]
+  },
+  { 
+    day: 'Thursday', 
+    shortDay: 'THU',
+    sessions: [
+      { time: 'By Appointment', activity: 'Closed' }
+    ]
+  },
+  { 
+    day: 'Friday', 
+    shortDay: 'FRI',
+    sessions: [
+      { time: '6:30 PM - 9:30 PM', activity: 'Open Practice' }
+    ]
+  },
+  { 
+    day: 'Saturday', 
+    shortDay: 'SAT',
+    sessions: [
+      { time: '2:30 PM - 5:30 PM', activity: 'Open Practice' }
+    ]
+  },
+  { 
+    day: 'Sunday', 
+    shortDay: 'SUN',
+    sessions: [
+      { time: '4:30 PM - 7:30 PM', activity: 'Open Practice' }
+    ]
+  },
 ];
+
+const clubInfo = {
+  location: '4911 Spring Park Road, Jacksonville, FL 32207',
+  venue: 'Pine Castle Gymnasium',
+  tables: '8 Butterfly Tables',
+  cost: '$15 per evening',
+  president: 'Jean-Marie Kanani',
+  contact: '904-885-4203'
+};
 
 const Training = () => {
   return (
@@ -236,147 +291,333 @@ const Training = () => {
           ))}
         </Grid>
 
-        {/* Weekly Schedule */}
+        {/* Premium Schedule Section */}
         <Box
           sx={{
-            p: { xs: 4, md: 6 },
-            borderRadius: '24px',
-            background: '#FFFFFF',
-            border: '2px solid #F5F5F5',
-            boxShadow: '0 8px 32px rgba(0, 0, 0, 0.08)',
+            borderRadius: '32px',
+            background: 'linear-gradient(135deg, #FFFFFF 0%, #FAFAFA 100%)',
+            overflow: 'hidden',
+            position: 'relative',
+            boxShadow: '0 24px 64px rgba(0, 0, 0, 0.12)',
+            border: '2px solid #F0F0F0',
+            '&::before': {
+              content: '""',
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              right: 0,
+              height: '6px',
+              background: 'linear-gradient(90deg, #D32F2F 0%, #FF5722 50%, #D32F2F 100%)',
+            }
           }}
         >
-          <Typography
-            variant="h3"
+          {/* Header Section */}
+          <Box
             sx={{
-              fontSize: { xs: '32px', md: '42px' },
-              fontWeight: 700,
-              mb: 1,
-              color: '#212121',
+              p: { xs: 4, md: 6 },
+              pb: { xs: 3, md: 4 },
+              borderBottom: '2px solid #F0F0F0',
             }}
           >
-            Weekly Schedule
-          </Typography>
-          <Typography
-            sx={{
-              fontSize: '16px',
-              color: '#757575',
-              mb: 4,
-            }}
-          >
-            Plan your training with our comprehensive weekly schedule
-          </Typography>
-
-          <Grid container spacing={2}>
-            {scheduleData.map((item, index) => (
-              <Grid item xs={12} key={index}>
+            <Grid container spacing={4} alignItems="center">
+              <Grid item xs={12} md={8}>
+                <Typography
+                  sx={{
+                    fontSize: '14px',
+                    fontWeight: 700,
+                    color: '#D32F2F',
+                    letterSpacing: '0.15em',
+                    mb: 2,
+                  }}
+                >
+                  PRACTICE SCHEDULE
+                </Typography>
+                <Typography
+                  variant="h3"
+                  sx={{
+                    fontSize: { xs: '32px', md: '48px' },
+                    fontWeight: 700,
+                    color: '#212121',
+                    mb: 2,
+                    lineHeight: 1.2,
+                  }}
+                >
+                  Table Tennis Practice
+                </Typography>
+                <Typography
+                  sx={{
+                    fontSize: { xs: '15px', md: '17px' },
+                    color: '#616161',
+                    lineHeight: 1.7,
+                    maxWidth: '600px',
+                  }}
+                >
+                  Our club holds practices inside the gymnasium at Pine Castle with high ceilings 
+                  and air conditioning to keep you cool. We have 8 Butterfly tables to play on and 
+                  everyone is welcome to join us.
+                </Typography>
+              </Grid>
+              <Grid item xs={12} md={4}>
                 <Box
                   sx={{
                     p: 3,
-                    borderRadius: '16px',
-                    background: index % 2 === 0 ? '#FAFAFA' : '#FFFFFF',
-                    border: '1px solid #F0F0F0',
-                    transition: 'all 0.3s ease',
-                    '&:hover': {
-                      background: 'rgba(211, 47, 47, 0.04)',
-                      borderColor: 'rgba(211, 47, 47, 0.2)',
-                      transform: 'translateX(8px)',
-                    },
+                    borderRadius: '20px',
+                    background: 'linear-gradient(135deg, rgba(211, 47, 47, 0.08) 0%, rgba(255, 87, 34, 0.08) 100%)',
+                    border: '2px solid rgba(211, 47, 47, 0.2)',
                   }}
                 >
-                  <Grid container spacing={2} alignItems="center">
-                    <Grid item xs={12} sm={2}>
+                  <Typography
+                    sx={{
+                      fontSize: '14px',
+                      fontWeight: 700,
+                      color: '#757575',
+                      letterSpacing: '0.1em',
+                      mb: 1,
+                    }}
+                  >
+                    COST PER SESSION
+                  </Typography>
+                  <Typography
+                    sx={{
+                      fontSize: '48px',
+                      fontWeight: 700,
+                      color: '#D32F2F',
+                      fontFamily: '"Bebas Neue", cursive',
+                      lineHeight: 1,
+                    }}
+                  >
+                    $15
+                  </Typography>
+                  <Typography
+                    sx={{
+                      fontSize: '14px',
+                      color: '#757575',
+                      mt: 0.5,
+                    }}
+                  >
+                    per evening session
+                  </Typography>
+                </Box>
+              </Grid>
+            </Grid>
+          </Box>
+
+          {/* Weekly Schedule Grid */}
+          <Box sx={{ p: { xs: 4, md: 6 } }}>
+            <Grid container spacing={3}>
+              {scheduleData.map((item, index) => (
+                <Grid item xs={12} sm={6} lg={4} key={index}>
+                  <Box
+                    sx={{
+                      p: 3,
+                      borderRadius: '20px',
+                      background: '#FFFFFF',
+                      border: '2px solid #F0F0F0',
+                      transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+                      position: 'relative',
+                      overflow: 'hidden',
+                      height: '100%',
+                      '&::before': {
+                        content: '""',
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        height: '4px',
+                        background: 'linear-gradient(90deg, #D32F2F 0%, #FF5722 100%)',
+                        transform: 'scaleX(0)',
+                        transformOrigin: 'left',
+                        transition: 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+                      },
+                      '&:hover': {
+                        background: '#FAFAFA',
+                        borderColor: 'rgba(211, 47, 47, 0.3)',
+                        transform: 'translateY(-4px)',
+                        boxShadow: '0 12px 32px rgba(211, 47, 47, 0.15)',
+                        '&::before': {
+                          transform: 'scaleX(1)',
+                        },
+                      },
+                    }}
+                  >
+                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 2.5 }}>
+                      <Box
+                        sx={{
+                          width: 56,
+                          height: 56,
+                          borderRadius: '14px',
+                          background: 'linear-gradient(135deg, rgba(211, 47, 47, 0.1) 0%, rgba(255, 87, 34, 0.1) 100%)',
+                          display: 'flex',
+                          flexDirection: 'column',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          border: '2px solid rgba(211, 47, 47, 0.2)',
+                        }}
+                      >
+                        <Typography
+                          sx={{
+                            fontSize: '11px',
+                            fontWeight: 700,
+                            color: '#757575',
+                            letterSpacing: '0.05em',
+                          }}
+                        >
+                          {item.shortDay}
+                        </Typography>
+                      </Box>
                       <Typography
                         sx={{
-                          fontSize: '18px',
+                          fontSize: '22px',
                           fontWeight: 700,
                           color: '#212121',
                         }}
                       >
                         {item.day}
                       </Typography>
-                    </Grid>
-                    <Grid item xs={12} sm={10}>
-                      <Grid container spacing={2}>
-                        <Grid item xs={12} sm={4}>
-                          <Box>
-                            <Typography
-                              sx={{
-                                fontSize: '11px',
-                                color: '#757575',
-                                fontWeight: 700,
-                                mb: 0.5,
-                                letterSpacing: '0.1em',
-                              }}
-                            >
-                              MORNING
-                            </Typography>
-                            <Typography
-                              sx={{
-                                fontSize: '14px',
-                                color: '#424242',
-                                fontWeight: 600,
-                              }}
-                            >
-                              {item.morning}
-                            </Typography>
-                          </Box>
-                        </Grid>
-                        <Grid item xs={12} sm={4}>
-                          <Box>
-                            <Typography
-                              sx={{
-                                fontSize: '11px',
-                                color: '#757575',
-                                fontWeight: 700,
-                                mb: 0.5,
-                                letterSpacing: '0.1em',
-                              }}
-                            >
-                              AFTERNOON
-                            </Typography>
-                            <Typography
-                              sx={{
-                                fontSize: '14px',
-                                color: '#424242',
-                                fontWeight: 600,
-                              }}
-                            >
-                              {item.afternoon}
-                            </Typography>
-                          </Box>
-                        </Grid>
-                        <Grid item xs={12} sm={4}>
-                          <Box>
-                            <Typography
-                              sx={{
-                                fontSize: '11px',
-                                color: '#757575',
-                                fontWeight: 700,
-                                mb: 0.5,
-                                letterSpacing: '0.1em',
-                              }}
-                            >
-                              EVENING
-                            </Typography>
-                            <Typography
-                              sx={{
-                                fontSize: '14px',
-                                color: '#424242',
-                                fontWeight: 600,
-                              }}
-                            >
-                              {item.evening}
-                            </Typography>
-                          </Box>
-                        </Grid>
-                      </Grid>
-                    </Grid>
-                  </Grid>
+                    </Box>
+
+                    {item.sessions.map((session, sessionIndex) => (
+                      <Box key={sessionIndex} sx={{ mb: sessionIndex < item.sessions.length - 1 ? 2 : 0 }}>
+                        <Box
+                          sx={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: 1,
+                            mb: 1,
+                          }}
+                        >
+                          <AccessTimeIcon sx={{ fontSize: 16, color: '#D32F2F' }} />
+                          <Typography
+                            sx={{
+                              fontSize: '14px',
+                              fontWeight: 600,
+                              color: '#D32F2F',
+                              letterSpacing: '0.02em',
+                            }}
+                          >
+                            {session.time}
+                          </Typography>
+                        </Box>
+                        <Typography
+                          sx={{
+                            fontSize: '15px',
+                            color: '#424242',
+                            fontWeight: 600,
+                            pl: 3,
+                          }}
+                        >
+                          {session.activity}
+                        </Typography>
+                      </Box>
+                    ))}
+                  </Box>
+                </Grid>
+              ))}
+            </Grid>
+          </Box>
+
+          {/* Club Information Footer */}
+          <Box
+            sx={{
+              p: { xs: 4, md: 6 },
+              pt: { xs: 3, md: 4 },
+              borderTop: '2px solid #F0F0F0',
+              background: '#FAFAFA',
+            }}
+          >
+            <Grid container spacing={3}>
+              <Grid item xs={12} md={4}>
+                <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 1.5 }}>
+                  <LocationOnIcon sx={{ fontSize: 20, color: '#D32F2F', mt: 0.3 }} />
+                  <Box>
+                    <Typography
+                      sx={{
+                        fontSize: '12px',
+                        fontWeight: 700,
+                        color: '#757575',
+                        letterSpacing: '0.1em',
+                        mb: 0.5,
+                      }}
+                    >
+                      LOCATION
+                    </Typography>
+                    <Typography
+                      sx={{
+                        fontSize: '14px',
+                        color: '#212121',
+                        lineHeight: 1.6,
+                      }}
+                    >
+                      {clubInfo.location}
+                    </Typography>
+                    <Typography
+                      sx={{
+                        fontSize: '13px',
+                        color: '#616161',
+                        mt: 0.5,
+                      }}
+                    >
+                      {clubInfo.venue}
+                    </Typography>
+                  </Box>
                 </Box>
               </Grid>
-            ))}
-          </Grid>
+              <Grid item xs={12} md={4}>
+                <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 1.5 }}>
+                  <PhoneIcon sx={{ fontSize: 20, color: '#D32F2F', mt: 0.3 }} />
+                  <Box>
+                    <Typography
+                      sx={{
+                        fontSize: '12px',
+                        fontWeight: 700,
+                        color: '#757575',
+                        letterSpacing: '0.1em',
+                        mb: 0.5,
+                      }}
+                    >
+                      CONTACT
+                    </Typography>
+                    <Typography
+                      sx={{
+                        fontSize: '14px',
+                        color: '#212121',
+                        lineHeight: 1.6,
+                      }}
+                    >
+                      {clubInfo.contact}
+                    </Typography>
+                  </Box>
+                </Box>
+              </Grid>
+              <Grid item xs={12} md={4}>
+                <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 1.5 }}>
+                  <AccountCircleIcon sx={{ fontSize: 20, color: '#D32F2F', mt: 0.3 }} />
+                  <Box>
+                    <Typography
+                      sx={{
+                        fontSize: '12px',
+                        fontWeight: 700,
+                        color: '#757575',
+                        letterSpacing: '0.1em',
+                        mb: 0.5,
+                      }}
+                    >
+                      CLUB PRESIDENT
+                    </Typography>
+                    <Typography
+                      sx={{
+                        fontSize: '14px',
+                        color: '#212121',
+                        lineHeight: 1.6,
+                      }}
+                    >
+                      {clubInfo.president}
+                    </Typography>
+                  </Box>
+                </Box>
+              </Grid>
+            </Grid>
+          </Box>
         </Box>
       </Container>
     </Box>
